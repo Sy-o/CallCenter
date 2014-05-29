@@ -32,7 +32,7 @@ public class CallCenter {
 
     public synchronized Operator call(int waitTime) throws InterruptedException{
         long start = System.currentTimeMillis();
-        while (freeOper.size() == 0 && (  waitTime == 0 || ((System.currentTimeMillis() - start) <= waitTime))) {
+        while (freeOper.size() == 0 && ((System.currentTimeMillis() - start) <= waitTime)) {
             wait();
         }
 
